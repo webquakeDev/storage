@@ -6,7 +6,7 @@
       <GenerateDocumentationFile>true</GenerateDocumentationFile>
       <AssemblyName>Storage.Net.Amazon.Aws</AssemblyName>
       <PackageId>Storage.Net.Amazon.Aws</PackageId>
-      <PackageIcon>storage.png</PackageIcon>
+      <PackageIconUrl>http://i.isolineltd.com/nuget/storage.png</PackageIconUrl>
       <PackageProjectUrl>https://github.com/aloneguid/storage</PackageProjectUrl>
       <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
       <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
@@ -16,7 +16,7 @@
       <AssemblyVersion>4.0.0.0</AssemblyVersion>
       <RepositoryUrl>https://github.com/aloneguid/storage</RepositoryUrl>
       <Authors>Ivan Gavryliuk (@aloneguid)</Authors>
-      <PackageLicense>https://github.com/aloneguid/storage/blob/master/LICENSE</PackageLicense>
+      <PackageLicenseUrl>https://github.com/aloneguid/storage/blob/master/LICENSE</PackageLicenseUrl>
       <RepositoryType>GitHub</RepositoryType>
       <Description>Extension to Storage.Net providing integration with Amazon S3 blobs.</Description>
       <LangVersion>latest</LangVersion>
@@ -34,8 +34,5 @@
    </ItemGroup>
    <ItemGroup>
       <ProjectReference Include="..\..\Storage.Net\Storage.Net.csproj" />
-   </ItemGroup>
-   <ItemGroup>
-      <None Include="..\..\storage.png" CopyToOutputDirectory="Always" Pack="true" PackagePath="\" />
    </ItemGroup>
 </Project>

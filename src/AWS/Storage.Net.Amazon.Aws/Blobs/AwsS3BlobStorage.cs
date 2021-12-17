@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Amazon;
 using Amazon.S3;
 using Amazon.Runtime;
 using Amazon.S3.Model;
@@ -39,11 +40,6 @@ namespace Storage.Net.Amazon.Aws.Blobs
       public static AwsS3BlobStorage FromAwsCliProfile(string profileName, string bucketName, string region)
       {
          return new AwsS3BlobStorage(bucketName, region, AwsCliCredentials.GetCredentials(profileName));
-      }
-      
-      public static AwsS3BlobStorage FromAwsCredentials(AWSCredentials credentials, string bucketName, string region)
-      {
-         return new AwsS3BlobStorage(bucketName, region, credentials);
       }
 #endif
 
@@ -126,7 +122,12 @@ namespace Storage.Net.Amazon.Aws.Blobs
             }
             catch(AmazonS3Exception ex) when(ex.ErrorCode == "BucketAlreadyOwnedByYou")
             {
-               //ignore this error as bucket already exists
+               // ignore this error as bucket already exists (S3)
+               _initialised = true;
+            }
+            catch(AmazonS3Exception ex) when(ex.ErrorCode == "Conflict")
+            {
+               // ignore this error as bucket already exists (DigitalOcean)
                _initialised = true;
             }
          }
